@@ -1,0 +1,27 @@
+### Get Clima history
+get http://localhost:5197/climate/getclimahistory?roomId=1
+
+
+### Get AC history
+get http://localhost:5197/climate/getachistory?roomId=1
+
+
+### Set AC  
+post http://localhost:5197/climate/setac
+content-type: application/json
+
+{
+    "room_id": 1,
+    "power": 0,
+    "mode": 3,
+    "temperature": 25,
+    "date": ""
+}
+
+
+### Set AC  
+post http://localhost:5197/climate/settestclimadata
+content-type: application/json
+
+{    
+}

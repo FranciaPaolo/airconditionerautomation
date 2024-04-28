@@ -1,0 +1,50 @@
+<h1>Soggiorno</h1>
+
+
+<b>Condizione {{last_date}}</b>
+<div class="row">
+  <div class="col-sm-2 temperature-data">
+    Temperatura: {{last_temperature}} °C <br />
+    Umidità: {{last_humidity}} % <br />
+  </div>
+  <div class="col-sm-8">
+    <img src="/assets/img/temp_icon.jpg" width="100" />
+  </div>
+</div>
+<div class="form-inline">
+  <button type="button" class="btn btn-default btn-primary" (click)="btnRefreshClick()">Refresh</button>
+</div>
+<br /><br />
+<b>Aria condizionata</b>
+
+
+<form class="form-inline">
+  <div class="form-group">
+    <label>Stato:</label>
+    <select class="form-control" id="ac_on" name="ac_on" [(ngModel)]="ac_on"
+      (ngModelChange)="ac_on_selectChange($event)">
+      <option value="1">Acceso</option>
+      <option value="0">Spento</option>
+    </select>
+  </div>
+  <div class="form-group" [hidden]="ac_on==0">
+    <label for="email">Temperatura:</label>
+    <input type="number" class="form-control" id="ac_temperature" placeholder="Inserisci la temperatura"
+      name="ac_temperature" [(ngModel)]="ac_temp" (ngModelChange)="ac_temp_selectChange($event)">
+  </div>
+  <div class="form-group" [hidden]="ac_on==0">
+    <label for="mode">Modalità:</label>
+    <select class="form-control" id="ac_mode" name="ac_mode" [(ngModel)]="ac_mode"
+      (ngModelChange)="ac_mode_selectChange($event)">
+      <option value="1">Caldo</option>
+      <option value="3">Freddo</option>
+    </select>
+  </div>
+
+  <button type="submit" class="btn btn-default btn-primary" [hidden]="!ac_changed" (click)="btnSendCommandClick()">Invia</button>
+</form>
+
+<br /><br /><br />
+<div class="container">
+  <div id="chart-line"></div>
+</div>
