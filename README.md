@@ -10,6 +10,7 @@ The purspose: remote control of the Mitsubishi Electric Air Conditioner.
 ![screenshot](imgs/webapp_preview.png)
 
 Component diagram:
+
 ![screenshot](imgs/diagram_components.png)
 
 ## WebApplication
